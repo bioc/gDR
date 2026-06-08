@@ -6,6 +6,10 @@
 #' @param results_file character, with datapaths and names of results file(s)
 #' or character with file path of results file(s)
 #' @param instrument string with type of instrument used
+#' @param cell_line_annotation optional data.table with cell line annotations;
+#'   if NULL (default), annotations are looked up from gDRinternal or gDRtestData
+#' @param drug_annotation optional data.table with drug annotations;
+#'   if NULL (default), annotations are looked up from gDRinternal or gDRtestData
 #'
 #' @examples
 #' td <- get_test_data()
@@ -19,12 +23,16 @@
 import_data <- function(manifest_file,
                         template_file,
                         results_file,
-                        instrument = "EnVision") {
+                        instrument = "EnVision",
+                        cell_line_annotation = NULL,
+                        drug_annotation = NULL) {
   loaded_data <- load_data(manifest_file = manifest_file,
                            df_template_files = template_file,
                            results_file = results_file,
                            instrument = instrument)
   merge_data(manifest = loaded_data$manifest,
              treatments = loaded_data$treatments,
-             data = loaded_data$data)
+             data = loaded_data$data,
+             cell_line_annotation = cell_line_annotation,
+             drug_annotation = drug_annotation)
 }
