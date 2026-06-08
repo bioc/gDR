@@ -1,3 +1,6 @@
+## gDR 1.11.3 - 2026-06-08
+* add custom annotation support to `import_data`
+
 ## gDR 1.11.2 - 2026-05-26
 * apply updated gDRstyle rules
 
