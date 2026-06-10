@@ -8,7 +8,9 @@ import_data(
   manifest_file,
   template_file,
   results_file,
-  instrument = "EnVision"
+  instrument = "EnVision",
+  cell_line_annotation = NULL,
+  drug_annotation = NULL
 )
 }
 \arguments{
@@ -21,6 +23,12 @@ or character with file path of templates file(s)}
 or character with file path of results file(s)}
 
 \item{instrument}{string with type of instrument used}
+
+\item{cell_line_annotation}{optional data.table with cell line annotations;
+if NULL (default), annotations are looked up from gDRinternal or gDRtestData}
+
+\item{drug_annotation}{optional data.table with drug annotations;
+if NULL (default), annotations are looked up from gDRinternal or gDRtestData}
 }
 \value{
 a \code{data.table}
